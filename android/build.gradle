@@ -1,0 +1,48 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+// google_mlkit 관련 모듈에 namespace 설정 및 manifest 패치 워크어라운드
+subprojects { subproject ->
+    subproject.pluginManager.withPlugin("com.android.library") {
+        if (subproject.name == "google_mlkit_commons") {
+            subproject.extensions.configure(com.android.build.gradle.LibraryExtension) { libraryExtension ->
+                libraryExtension.namespace = "com.google.mlkit.commons"
+            }
+        } else if (subproject.name == "google_mlkit_pose_detection") {
+            subproject.extensions.configure(com.android.build.gradle.LibraryExtension) { libraryExtension ->
+                libraryExtension.namespace = "com.google.mlkit.pose_detection"
+            }
+        }
+
+        // 해당 라이브러리 모듈의 AndroidManifest.xml 파일에서 package 속성 제거
+        if (subproject.name in ["google_mlkit_commons", "google_mlkit_pose_detection"]) {
+            subproject.tasks.withType(com.android.build.gradle.tasks.ProcessLibraryManifest).configureEach { task ->
+                task.doFirst {
+                    def manifestFile = file("${subproject.projectDir}/src/main/AndroidManifest.xml")
+                    if (manifestFile.exists()) {
+                        def manifestText = manifestFile.text
+                        def patchedText = manifestText.replaceAll(/package="[^"]*"/, '')
+                        manifestFile.write(patchedText)
+                        println "Patched AndroidManifest.xml for ${subproject.name}"
+                    }
+                }
+            }
+        }
+    }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

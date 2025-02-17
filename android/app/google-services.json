@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "939432081748",
+    "project_id": "motionapp-92eb1",
+    "storage_bucket": "motionapp-92eb1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939432081748:android:83b65a72936f258fe470c1",
+        "android_client_info": {
+          "package_name": "com.example.motion_recognition_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939432081748-4k5riba1tlv83d22seq89jauq1n92mfb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfjZCzKSb-Dloz1tepTg_qQOCKSEHCNx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939432081748-4k5riba1tlv83d22seq89jauq1n92mfb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "939432081748-8mqgcsk6hfbghueqvfc3n9s54tvma7p8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.motionRecognitionApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939432081748:android:b0209fe256b6a490e470c1",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939432081748-4k5riba1tlv83d22seq89jauq1n92mfb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfjZCzKSb-Dloz1tepTg_qQOCKSEHCNx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939432081748-4k5riba1tlv83d22seq89jauq1n92mfb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "939432081748-8mqgcsk6hfbghueqvfc3n9s54tvma7p8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.motionRecognitionApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
