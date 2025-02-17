@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "939432081748",
+    "firebase_url": "https://motionapp-92eb1-default-rtdb.firebaseio.com",
     "project_id": "motionapp-92eb1",
     "storage_bucket": "motionapp-92eb1.firebasestorage.app"
   },
@@ -13,6 +14,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "939432081748-t2uos4bsub254rkrud44n1e0r12ge02a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.motion_recognition_app",
+            "certificate_hash": "c13686d7419c4413ee34e25818f717c792cf24a2"
+          }
+        },
+        {
+          "client_id": "939432081748-uvaig9hpsu64s3hp1se96ekdjaq8mevj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.motion_recognition_app",
+            "certificate_hash": "081240524c36d4bfb78b5a4d18804da2167d2f5d"
+          }
+        },
         {
           "client_id": "939432081748-4k5riba1tlv83d22seq89jauq1n92mfb.apps.googleusercontent.com",
           "client_type": 3
@@ -49,6 +66,22 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "939432081748-rgmrc1hste7ije5bqu09gqugnvk6rq62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.untitled",
+            "certificate_hash": "d4d2a8a919de567dff346f463783e8fb8924c64b"
+          }
+        },
+        {
+          "client_id": "939432081748-tq7de0q19e7b96u657q2il26gkii39rd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.untitled",
+            "certificate_hash": "081240524c36d4bfb78b5a4d18804da2167d2f5d"
+          }
+        },
         {
           "client_id": "939432081748-4k5riba1tlv83d22seq89jauq1n92mfb.apps.googleusercontent.com",
           "client_type": 3

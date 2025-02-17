@@ -1,3 +1,14 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.1.1' // 최신 버전 사용
+        classpath 'com.google.gms:google-services:4.3.15' // Firebase 서비스 추가
+    }
+}
+
 allprojects {
     repositories {
         google()
@@ -6,14 +17,13 @@ allprojects {
 }
 
 rootProject.buildDir = "../build"
+
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
     project.evaluationDependsOn(":app")
 }
 
-// google_mlkit 관련 모듈에 namespace 설정 및 manifest 패치 워크어라운드
+// 🔹 google_mlkit 관련 모듈에 namespace 설정 및 AndroidManifest.xml 패치
 subprojects { subproject ->
     subproject.pluginManager.withPlugin("com.android.library") {
         if (subproject.name == "google_mlkit_commons") {
@@ -26,7 +36,7 @@ subprojects { subproject ->
             }
         }
 
-        // 해당 라이브러리 모듈의 AndroidManifest.xml 파일에서 package 속성 제거
+        // AndroidManifest.xml에서 package 속성 제거 (Google ML Kit 오류 방지)
         if (subproject.name in ["google_mlkit_commons", "google_mlkit_pose_detection"]) {
             subproject.tasks.withType(com.android.build.gradle.tasks.ProcessLibraryManifest).configureEach { task ->
                 task.doFirst {
@@ -35,7 +45,7 @@ subprojects { subproject ->
                         def manifestText = manifestFile.text
                         def patchedText = manifestText.replaceAll(/package="[^"]*"/, '')
                         manifestFile.write(patchedText)
-                        println "Patched AndroidManifest.xml for ${subproject.name}"
+                        println "✅ Patched AndroidManifest.xml for ${subproject.name}"
                     }
                 }
             }
@@ -43,6 +53,7 @@ subprojects { subproject ->
     }
 }
 
+// 프로젝트 클린 태스크
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
