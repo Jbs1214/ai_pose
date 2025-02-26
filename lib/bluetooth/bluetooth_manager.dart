@@ -4,8 +4,8 @@ import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 /// BluetoothManager: 블루투스 스캔, 연결, 데이터 전송 담당 (싱글톤)
 class BluetoothManager {
-  BluetoothManager._internal();
-  static final BluetoothManager instance = BluetoothManager._internal();
+  BluetoothManager.internal();
+  static final BluetoothManager instance = BluetoothManager.internal();
 
   BluetoothDevice? _device;
   BluetoothCharacteristic? _characteristic;

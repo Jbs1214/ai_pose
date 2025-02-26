@@ -71,19 +71,29 @@ class LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // 로그인 배너 이미지
+              // 배너 이미지와 구글 로그인 이미지 함께 포함
               Padding(
                 padding: const EdgeInsets.only(bottom: 20),
-                child: Image.asset(
-                  'assets/images/login_banner.png',
-                  width: 200,
-                  height: 200,
-                  fit: BoxFit.contain,
+                child: Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/img.png', // 배너 이미지
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.contain,
+                    ),
+                    const SizedBox(height: 20),
+                    GestureDetector(
+                      onTap: _signInWithGoogle,
+                      child: Image.asset(
+                        'assets/images/google.png', // 구글 로그인 이미지
+                        width: 250,
+                        height: 250,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              CupertinoButton.filled(
-                onPressed: _signInWithGoogle,
-                child: const Text('구글 계정으로 로그인'),
               ),
             ],
           ),
